@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img class="card__img" :src="person.image" :alt="fullName" loading="lazy" />
+    <img class="card__img" :src="person.image"/>
     <h2 class="card__name">{{ fullName }}</h2>
     <p class="card__phone">{{ person.phone }}</p>
   </div>

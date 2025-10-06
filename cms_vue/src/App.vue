@@ -14,9 +14,7 @@ async function load() {
       people.value = (j.data || []).map((p, i) => ({
         ...p,
 
-        image: `https://picsum.photos/1000/3000?rand=${Math.random().toString(
-          36
-        )}`,
+        image: `https://picsum.photos/1000/3000?rand=${Math.random().toString(36)}`,
       }));
     })
     .catch((e) => console.error(e));
