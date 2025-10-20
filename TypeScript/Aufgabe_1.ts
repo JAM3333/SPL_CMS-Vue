@@ -63,7 +63,17 @@ function getExpensiveCars(cars: Car[], minPrice: number): Car[] {
     return expensiveCars;
 }
 
+function getTotalPriceReduce(cars: Car[]): number {
+    return cars.reduce((total, car) => total + car.price, 0);
+}
+function getExpensiveCarsFilter(cars: Car[], minPrice: number): Car[] {
+    return cars.filter(car => car.price > minPrice);
+}
+
 console.log(getTotalPrice(cars));
+console.log(getTotalPriceReduce(cars));
+
 printCars(cars);
 printCars(getExpensiveCars(cars,40000));
+printCars(getExpensiveCarsFilter(cars,40000));
 
