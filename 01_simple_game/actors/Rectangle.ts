@@ -1,19 +1,25 @@
 import { Actor } from "./Actor";
+import { Movement } from "../movements/movement.js";
 
 export class Rectangle implements Actor {
   constructor(
-    private x: number,
-    private y: number,
     private sizeX: number,
     private sizeY: number,
+    private color: string,
+    private movmenent: Movement,
   ) {}
 
   update(deltaTime: number) {
-    this.x += deltaTime * 100;
+    this.movmenent.update(deltaTime);
   }
 
   render(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = "red";
-    ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
+    ctx.fillStyle = this.color;
+    ctx.fillRect(
+      this.movmenent.getPosition().x,
+      this.movmenent.getPosition().y,
+      this.sizeX,
+      this.sizeY,
+    );
   }
 }

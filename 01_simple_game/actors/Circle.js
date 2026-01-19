@@ -1,17 +1,16 @@
 export class Circle {
-    constructor(x, y, sizeX, sizeY) {
-        this.x = x;
-        this.y = y;
-        this.sizeX = sizeX;
-        this.sizeY = sizeY;
+    constructor(size, color, movmenent) {
+        this.size = size;
+        this.color = color;
+        this.movmenent = movmenent;
     }
     update(deltaTime) {
-        this.x += deltaTime * 100;
+        this.movmenent.update(deltaTime);
     }
     render(ctx) {
-        ctx.fillStyle = "blue";
+        ctx.strokeStyle = this.color;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.sizeX, 0, 2 * Math.PI);
+        ctx.arc(this.movmenent.getPosition().x, this.movmenent.getPosition().y, this.size, 0, 2 * Math.PI);
         ctx.stroke();
     }
 }

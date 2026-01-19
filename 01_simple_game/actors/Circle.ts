@@ -1,20 +1,27 @@
-import { Actor } from "./Actor.js";
+import { Actor } from "./Actor";
+import { Movement } from "../movements/movement.js";
+
 export class Circle implements Actor {
   constructor(
-    private x: number,
-    private y: number,
-    private sizeX: number,
-    private sizeY: number
+    private size: number,
+    private color: string,
+    private movmenent: Movement,
   ) {}
 
   update(deltaTime: number) {
-    this.x += deltaTime * 100;
+    this.movmenent.update(deltaTime);
   }
 
   render(ctx: CanvasRenderingContext2D) {
-    ctx.fillStyle = "blue";
+    ctx.strokeStyle = this.color;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.sizeX, 0, 2 * Math.PI);
+    ctx.arc(
+      this.movmenent.getPosition().x,
+      this.movmenent.getPosition().y,
+      this.size,
+      0,
+      2 * Math.PI,
+    );
     ctx.stroke();
   }
 }
